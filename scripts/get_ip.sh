@@ -78,5 +78,5 @@ ipdId=$(az network nic show --id "$nicId" --query "ipConfigurations[].publicIpAd
 if [ "$debugMode" = true ] ; then
     echo "Looking up IP Address . IP ID = $ipdId"
 fi
-az network public-ip show --id "$ipdId" --query "ipAddress"
+az network public-ip show --id "$ipdId" --query "ipAddress" --out tsv
 
