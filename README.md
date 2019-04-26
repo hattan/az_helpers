@@ -10,7 +10,7 @@ usage: ./get_ip.sh -n <Virtual Machine Name> -g <Resource Group Name>
 switches:
 
 | short  | long | parameter | description |
-| --- | ---- | ------| -------|
+| --- | ------ | ------| -------|
 | -n  | --name  | vm | name of the Virtual Machine.
 | -g  | --group  | resource_group | Resource group for the virtual machine.
 | -d  | --debug  |  | Enable Debug mode. This prints out more information about the azure resources.
