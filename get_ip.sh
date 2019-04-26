@@ -10,7 +10,7 @@ usage() {
     echo "Usage: $me options"; 
     echo "  -n <virtual machine name>"
     echo "  -g <resource group>"
-     echo "  -d <true|false> , debug mode (optional, defaults to false)"
+    echo "  -d <true|false> , debug mode (optional, defaults to false)"
     exit 1; 
 }
 
