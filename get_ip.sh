@@ -8,27 +8,43 @@ me=`basename "$0"`
 
 usage() { 
     echo "Usage: $me options"; 
-    echo "  -n <virtual machine name>"
-    echo "  -g <resource group>"
-    echo "  -d <true|false> , debug mode (optional, defaults to false)"
+    echo "  -n|--name <virtual machine name>"
+    echo "  -g|--group <resource group>"
+    echo "  -d|--debug debug mode (optional)"
+    echo "  -h|--help help (optional)"
     exit 1; 
 }
 
 #parse input
-while getopts ":b:r:t:s:d:n:g:" arg; do
-    case "${arg}" in
-        n)
-            vmName=${OPTARG}
-        ;;
-        g)
-            resourceGroup=${OPTARG}
-        ;;
-        d)
-            debugMode=${OPTARG}
-        ;;
-    esac
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -n|--name)
+    vmName="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -g|--group)
+    resourceGroup="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -d|--debug)
+    debugMode=true
+    shift # past argument
+    shift # past value
+    ;;
+    -h|--help)
+    usage
+    shift # past argument
+    shift # past value
+    ;;
+esac
 done
-shift $((OPTIND-1))
+set -- "${POSITIONAL[@]}" # restore positional parameters
 
 if [[ -z "$vmName" && -z "$resourceGroupName" ]]; then
     usage
