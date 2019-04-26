@@ -8,6 +8,7 @@ Script to get an IP address associated with an Azure Virtual Machine
 usage: ./get_ip.sh -n <Virtual Machine Name> -g <Resource Group Name>
 
 switches:
+
 | short  | long | parameter | description |
 | --- | ---- | ------| -------|
 | -n  | --name  | vm | name of the Virtual Machine.
